@@ -3,7 +3,7 @@ const THREE = require('three');
 exports.room = {
   init(params) {
     this.materials = this.createMaterials();
-    this.boxSize = params.boxSize || {x:1000, y: 1000, z: 200};
+    this.boxSize = params.boxSize || {x: 1000, y: 1000, z: 200};
     this.room = this.createRoomBox(this.boxSize);
     this.lights = this.createLights(50);
     this.group = new THREE.Group();
@@ -18,21 +18,14 @@ exports.room = {
     const material = new THREE.LineBasicMaterial({
       color: 0x000083,
       linewidth: 1,
-      transparent: true
+      transparent: true,
     });
     const wireGeometry = new THREE.EdgesGeometry(geometry);
     return new THREE.LineSegments(wireGeometry, material);
   },
 
   createMaterials() {
-    const colors = [
-      0xff9090,
-      0xeef1ff,
-      0xffffcc,
-      0x0000ff,
-      0xff0000,
-      0x52ff6a,
-    ];
+    const colors = [0xff9090, 0xeef1ff, 0xffffcc, 0x0000ff, 0xff0000, 0x52ff6a];
     return colors.map(c => this.createLightMaterial(c));
   },
 

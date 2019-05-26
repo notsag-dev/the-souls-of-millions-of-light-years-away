@@ -6,7 +6,7 @@ const {mirroredRoom} = require('./mirroredRoom');
  *
  */
 const scene = new THREE.Scene();
-scene.fog = new THREE.Fog(0x0000ff, 100, 40000)
+scene.fog = new THREE.Fog(0x0000ff, 100, 40000);
 const camera = new THREE.PerspectiveCamera(
   75,
   window.innerWidth / window.innerHeight,
@@ -42,8 +42,8 @@ const animate = () => {
  */
 const init = async () => {
   const room = Object.create(mirroredRoom);
-  room.init({boxSize: {x:10000, y: 2000, z: 10000}});
-  scene.add(room.group)
+  room.init({boxSize: {x: 10000, y: 2000, z: 10000}});
+  scene.add(room.group);
   animate();
 };
 

@@ -4,10 +4,10 @@ const {room} = require('./room');
 exports.mirroredRoom = {
   init(params = {}) {
     this.originalRoom = Object.create(room);
-    this.boxSize = params.boxSize || {x:1000, y: 1000, z: 200};
+    this.boxSize = params.boxSize || {x: 1000, y: 1000, z: 200};
     room.init({
       boxSize: this.boxSize,
-    })
+    });
     this.group = new THREE.Group();
     this.group.add(this.originalRoom.group);
     this.rooms = this.createRooms(7);
@@ -18,10 +18,14 @@ exports.mirroredRoom = {
       for (let y = -number; y <= number; y++) {
         for (let z = -number; z <= number; z++) {
           const newRoom = this.originalRoom.group.clone();
-          newRoom.position.set(x * this.boxSize.x, y * this.boxSize.y, z * this.boxSize.z);
+          newRoom.position.set(
+            x * this.boxSize.x,
+            y * this.boxSize.y,
+            z * this.boxSize.z,
+          );
           this.group.add(newRoom);
         }
       }
     }
-  }
-}
+  },
+};
