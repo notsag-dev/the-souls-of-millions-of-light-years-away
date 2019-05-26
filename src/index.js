@@ -37,7 +37,7 @@ const animate = () => {
 };
 
 /**
- * Scene init: load models, populate scene.
+ * Scene init: populate scene.
  *
  */
 const init = async () => {
